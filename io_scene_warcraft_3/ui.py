@@ -46,4 +46,8 @@ class WarCraft3PanelBone(bpy.types.Panel):
         warcraft3data = bone.warcraft_3
         layout = self.layout
         layout.prop(warcraft3data, 'nodeType')
-        layout.operator('warcraft_3.update_bone_settings', text='Update All Nodes')
+        if context.object.mode == 'POSE':
+            layout.operator(
+                'warcraft_3.update_bone_settings',
+                text='Update All Nodes'
+                )
